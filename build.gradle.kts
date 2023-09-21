@@ -1,5 +1,5 @@
 plugins {
-    kotlin("multiplatform") version "1.9.0"
+    kotlin("multiplatform")
 }
 
 group = "fi.papinkivi"
@@ -10,6 +10,8 @@ repositories {
 }
 
 kotlin {
+    jvm()
+    @Suppress("OPT_IN_USAGE")
     wasm {
         binaries.executable()
         browser {
