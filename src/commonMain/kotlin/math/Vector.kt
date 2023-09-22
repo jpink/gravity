@@ -1,3 +1,5 @@
+package math
+
 import kotlin.math.sqrt
 
 data class Vector(

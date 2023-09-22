@@ -1,3 +1,7 @@
+package space
+
+import math.Vector
+
 // https://polku.opetus.tv/node/470
 
 const val EARTH_DENSITY = 5_515.3

@@ -1,3 +1,7 @@
+package physics
+
+import math.pow2
+
 /** [Gravitational constant](https://en.wikipedia.org/wiki/Gravitational_constant) (N * m² / kg²). */
 const val GRAVITATIONAL = 6.674E-11
 

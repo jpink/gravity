@@ -1,6 +1,7 @@
-import kotlin.test.Test
-import kotlin.test.assertEquals
-import kotlin.test.assertNotEquals
+package physics
+
+import space.*
+import kotlin.test.*
 
 class GravityTest {
     @Test

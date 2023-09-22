@@ -1,7 +1,12 @@
+package space
+
+import math.*
+import physics.*
+
 /** Astronomical object, a body in the space. */
 class Orb(
     /** Coordinates in meters (m). */
-    var position: Vector = Vector.ZERO,
+    var location: Vector = Vector.ZERO,
 
     /** Mass (m) in kilograms (kg). */
     var mass: Double = 0.0,
@@ -17,14 +22,16 @@ class Orb(
 
     val volume get() = mass / density
 
+    fun acceleration(gravity: Double) = gravity / mass
+
     fun copy(
-        position: Vector = this.position,
+        location: Vector = this.location,
         mass: Double = this.mass,
         density: Double = this.density,
         velocity: Vector = this.velocity
-    ) = Orb(position, mass, density, velocity)
+    ) = Orb(location, mass, density, velocity)
 
-    fun distance(that: Orb) = position.distance(that.position)
+    fun distance(that: Orb) = location.distance(that.location)
 
     fun gravity(that: Orb) = gravity(mass, that.mass, distance(that))
 
@@ -38,14 +45,14 @@ class Orb(
         val thisWeight = mass / (totalMass)
         val thatWeight = thatMass / (totalMass)
         return Orb(
-            position.weightedPlus(thisWeight, that.position, thatWeight),
+            location.weightedPlus(thisWeight, that.location, thatWeight),
             totalMass,
             combinedDensity,
             velocity.weightedPlus(thisWeight, that.velocity, thatWeight)
         )
     }
 
-    override fun toString() = "[$position, $mass, $velocity]"
+    override fun toString() = "[$location, $mass, $velocity]"
 
     companion object {
         const val WATER_DENSITY = 1.0E3

@@ -1,7 +1,7 @@
-import kotlin.test.Test
-import kotlin.test.assertEquals
-import kotlin.test.assertFalse
-import kotlin.test.assertTrue
+package space
+
+import math.Vector
+import kotlin.test.*
 
 class OrbTest {
     @Test
@@ -29,7 +29,7 @@ class OrbTest {
     @Test
     fun plus_earthAndMoon() {
         val orb = EARTH + MOON
-        assertEquals(Vector(4768133.646868944), orb.position)
+        assertEquals(Vector(4768133.646868944), orb.location)
         assertEquals(EARTH_MASS + MOON_MASS, orb.mass)
         assertEquals(5472.006889199539, orb.density)
         assertEquals(Vector.ZERO, orb.velocity)
@@ -42,6 +42,6 @@ class OrbTest {
 
     @Test
     fun radius_moon_1737E3() {
-        assertEquals(1738088.752988181, MOON.radius)
+        assertEquals(1738088.7529881808, MOON.radius)
     }
 }
