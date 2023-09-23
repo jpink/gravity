@@ -18,6 +18,6 @@ const val MOON_SPEED = 2.38E3
 /** The distance between the centers of gravity of the earth and the moon. */
 const val EARTH_MOON_DISTANCE = EARTH_RADIUS + EARTH_MOON_MEAN_DISTANCE + MOON_RADIUS
 
-val EARTH = Orb(mass = EARTH_MASS, density = EARTH_DENSITY)
-
-val MOON = Orb(Vector(EARTH_MOON_DISTANCE), MOON_MASS, MOON_DENSITY)
+fun earth() = Orb(mass = EARTH_MASS, density = EARTH_DENSITY)
+fun moon() = Orb(Vector(EARTH_MOON_DISTANCE), MOON_MASS, MOON_DENSITY)
+fun solarSystem() = Space(mutableListOf(earth(), moon()))

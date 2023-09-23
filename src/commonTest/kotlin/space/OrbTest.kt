@@ -3,6 +3,9 @@ package space
 import math.Vector
 import kotlin.test.*
 
+val EARTH = earth()
+val MOON = moon()
+
 class OrbTest {
     @Test
     fun distance_earthVsMoon() {
