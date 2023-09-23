@@ -8,13 +8,16 @@ import org.w3c.dom.svg.SVGGElement
 class OrbGroup(private val orb: Orb) : BufferedGroup<OrbGroup.Context>() {
     class Context(
         element: SVGGElement,
-        val circle: SVGCircleElement
+        val circle: SVGCircleElement,
+        val velocity: VectorLine
     ) : Group.Context(element)
 
     override fun SVGGElement.create(): Context {
         className("orb")
         val circle = add(Tag.circle)
-        return Context(this, circle)
+        val location = orb.location
+        val velocity = add(VectorLine(location.to(location + orb.velocity)))
+        return Context(this, circle, velocity)
     }
 
     override fun SVGGElement.update(context: Context) {
@@ -24,19 +27,4 @@ class OrbGroup(private val orb: Orb) : BufferedGroup<OrbGroup.Context>() {
             strokeWidth(radius / 10)
         }
     }
-
-    /*private val circle = svg.circle(orb.location, orb.radius) {
-        fill("green")
-        stroke("blue")
-        strokeWidth("1%")
-    }
-    private val line = svg.line(orb.location, orb.location + orb.velocity) {
-        stroke("red")
-        strokeWidth("2")
-    }
-
-    override fun update() {
-        circle.c(orb.location)
-        line.position(orb.location, orb.location + orb.velocity)
-    }*/
 }

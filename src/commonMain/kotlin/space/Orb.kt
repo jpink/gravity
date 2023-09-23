@@ -6,7 +6,7 @@ import physics.*
 /** Astronomical object, a body in the space. */
 class Orb(
     /** Coordinates in meters (m). */
-    var location: Vector = Vector.ZERO,
+    var location: Point = Point.ZERO,
 
     /** Mass (m) in kilograms (kg). */
     var mass: Double = 0.0,
@@ -15,7 +15,7 @@ class Orb(
     var density: Double = WATER_DENSITY,
 
     /** Velocity (v) in meter/seconds (m/s). */
-    var velocity: Vector = Vector.ZERO
+    var velocity: Point = Point.ZERO
 ) {
     /** Radius (r) in meters (m). */
     val radius get() = sphereRadius(volume)
@@ -25,10 +25,10 @@ class Orb(
     fun acceleration(gravity: Double) = gravity / mass
 
     fun copy(
-        location: Vector = this.location,
+        location: Point = this.location,
         mass: Double = this.mass,
         density: Double = this.density,
-        velocity: Vector = this.velocity
+        velocity: Point = this.velocity
     ) = Orb(location, mass, density, velocity)
 
     fun distance(that: Orb) = location.distance(that.location)

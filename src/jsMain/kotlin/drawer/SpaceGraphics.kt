@@ -14,7 +14,7 @@ class SpaceGraphics(private val space: Space) : Graphics<SpaceGraphics.Context>(
         space.view.apply {
             x(minX)
             y(minX)
-            val max = maxOf(width, height)
+            val max = maxOf(width, height) / 20
             viewBox(minX, minY, max, max)
         }
         orbGroups.forEach { it.show(this) }

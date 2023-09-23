@@ -69,15 +69,15 @@ abstract class Circle<C : Circle.Context> : Drawer<SVGCircleElement, C>() {
     abstract class Context(element: SVGCircleElement) : AbstractContext<SVGCircleElement>(element)
     override val tag = Tag.circle
 }
-abstract class BufferedGroup<C : Group.Context> : Buffered<SVGGElement, C>() {
-    override val tag = Tag.group
-}
 abstract class Graphics<C : Graphics.Context> : Drawer<SVGSVGElement, C>() {
     abstract class Context(element: SVGSVGElement) : AbstractContext<SVGSVGElement>(element)
     override val tag = Tag.graphics
 }
 abstract class Group<C : Group.Context> : Drawer<SVGGElement, C>() {
     abstract class Context(element: SVGGElement) : AbstractContext<SVGGElement>(element)
+    override val tag = Tag.group
+}
+abstract class BufferedGroup<C : Group.Context> : Buffered<SVGGElement, C>() {
     override val tag = Tag.group
 }
 abstract class Line<C : Line.Context> : Drawer<SVGLineElement, C>() {

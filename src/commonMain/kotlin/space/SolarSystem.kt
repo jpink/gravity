@@ -1,6 +1,6 @@
 package space
 
-import math.Vector
+import math.Point
 
 // https://polku.opetus.tv/node/470
 
@@ -19,5 +19,5 @@ const val MOON_SPEED = 2.38E3
 const val EARTH_MOON_DISTANCE = EARTH_RADIUS + EARTH_MOON_MEAN_DISTANCE + MOON_RADIUS
 
 fun earth() = Orb(mass = EARTH_MASS, density = EARTH_DENSITY)
-fun moon() = Orb(Vector(EARTH_MOON_DISTANCE), MOON_MASS, MOON_DENSITY)
+fun moon() = Orb(Point(EARTH_MOON_DISTANCE), MOON_MASS, MOON_DENSITY)
 fun solarSystem() = Space(mutableListOf(earth(), moon()))

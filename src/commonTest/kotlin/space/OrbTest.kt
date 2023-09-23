@@ -1,6 +1,6 @@
 package space
 
-import math.Vector
+import math.Point
 import kotlin.test.*
 
 val EARTH = earth()
@@ -32,10 +32,10 @@ class OrbTest {
     @Test
     fun plus_earthAndMoon() {
         val orb = EARTH + MOON
-        assertEquals(Vector(4768133.646868944), orb.location)
+        assertEquals(Point(4768133.646868944), orb.location)
         assertEquals(EARTH_MASS + MOON_MASS, orb.mass)
         assertEquals(5472.006889199539, orb.density)
-        assertEquals(Vector.ZERO, orb.velocity)
+        assertEquals(Point.ZERO, orb.velocity)
     }
 
     @Test

@@ -9,10 +9,14 @@ body {
 svg.space {
     width: 100%;
     height: 100%;
-    background-color: gray;
+    /*background-color: gray;*/
 }
 
 svg.space g.orb circle {
-    fill: white;
+    fill: green;
     stroke: black;
+}
+
+svg.space line.v {
+    stroke: red;
 }
